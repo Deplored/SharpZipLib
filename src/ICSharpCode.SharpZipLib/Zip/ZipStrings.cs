@@ -256,5 +256,13 @@ namespace ICSharpCode.SharpZipLib.Zip
 				ZipArchiveCommentEncoding = ZipArchiveCommentEncoding,
 				ZipCryptoEncoding = ZipCryptoEncoding
 			};
+
+		public static string ReplaceBackslashes(string input)
+		{
+			const char BACKSLASH = '\\';
+			if (input.Contains(BACKSLASH))
+				return input.Replace(BACKSLASH, '/');
+			return input;
+		}
 	}
 }

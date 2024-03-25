@@ -3690,6 +3690,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 
 				StreamUtils.ReadFully(baseStream_, buffer, 0, nameLen);
 				string name = entryEncoding.GetString(buffer, 0, nameLen);
+				name = ZipStrings.ReplaceBackslashes(name);
 				var unicode = entryEncoding.IsZipUnicode();
 
 				var entry = new ZipEntry(name, versionToExtract, versionMadeBy, (CompressionMethod)method, unicode)

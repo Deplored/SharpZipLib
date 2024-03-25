@@ -222,6 +222,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 
 			var entryEncoding = _stringCodec.ZipInputEncoding(flags);
 			string name = entryEncoding.GetString(buffer);
+			name = ZipStrings.ReplaceBackslashes(name);
 			var unicode = entryEncoding.IsZipUnicode();
 
 			entry = new ZipEntry(name, versionRequiredToExtract, ZipConstants.VersionMadeBy, method, unicode)
